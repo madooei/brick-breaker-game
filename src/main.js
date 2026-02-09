@@ -23,18 +23,23 @@ const paddle = new Paddle(
   "#0095DD",
 );
 
+let isGameOver = false;
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   ball.draw(ctx);
   ball.move();
-  ball.bounce(canvas.width, canvas.height);
+  isGameOver = !ball.bounce(canvas.width, canvas.height);
   ball.collides(paddle);
 
   paddle.draw(ctx);
   paddle.move(canvas.width);
 
-  window.requestAnimationFrame(draw);
+  if (isGameOver) {
+    window.alert("Game over!");
+  } else {
+    window.requestAnimationFrame(draw);
+  }
 }
 
 draw();

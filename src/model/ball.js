@@ -7,9 +7,13 @@ class Ball extends Sprite {
       this.dx *= -1; // 👀 reverse horizontal direction
     }
 
-    if (this.y < 0 || this.y + this.height > canvasHeight) {
+    if (this.y < 0) {
       this.dy *= -1; // 👀 reverse vertical direction
+    } else if (this.y + this.height > canvasHeight) {
+      return false;
     }
+
+    return true;
   }
 
   collides(other) {
