@@ -1,5 +1,5 @@
 class Block {
-  constructor(x, y, width, height) {
+  constructor(x, y, width, height, color) {
     this.x = x;
     this.y = y;
     this.height = height;
@@ -15,3 +15,5 @@ class Block {
     ctx.closePath();
   }
 }
+
+export default Block;
