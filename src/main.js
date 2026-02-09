@@ -68,7 +68,11 @@ function draw() {
   if (isGameOver) {
     window.alert("Game over!");
   } else {
-    window.requestAnimationFrame(draw);
+    if (score === brickRowCount * brickColumnCount) {
+      window.alert("You won!");
+    } else {
+      window.requestAnimationFrame(draw);
+    }
   }
 }
 
